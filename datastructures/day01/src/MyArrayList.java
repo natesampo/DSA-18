@@ -2,41 +2,95 @@ public class MyArrayList {
     private Cow[] elems;
     private int size;
 
-    // TODO: Runtime: O(?)
-    public MyArrayList() {
-        // TODO
-    }
-
-    // TODO: Runtime: O(?)
+    // Runtime: O(1)
     public MyArrayList(int capacity) {
-        // TODO
+    	elems = new Cow[capacity];
+    	size = 0;
     }
 
-    // TODO: Runtime: O(?)
+    // Runtime: O(1)
+    public MyArrayList() {
+        elems = new Cow[10];
+        size = 0;
+    }
+
+    // Runtime: O(1)
     public void add(Cow c) {
-        // TODO
+    	if(elems.length == size) {
+    		elems = grow();
+    	}
+    	elems[size] = c;
+    	size ++;
     }
 
-    // TODO: Runtime: O(?)
+    public Cow[] grow() {
+    	Cow[] newCows = new Cow[elems.length*2];
+    	System.arraycopy(elems,0,newCows,0,elems.length);
+		return newCows;
+    }
+    
+    public Cow[] shrink() {
+    	Cow[] newCows = new Cow[(int) (elems.length/2)];
+    	System.arraycopy(elems,0,newCows,0,elems.length);
+		return newCows;
+    }
+    
+    // Runtime: O(n)
+    /*public int size() {
+        for(int i=0;i<elems.length;i++) {
+        	if(elems[i] == null) {
+        		return i;
+        	}
+        }
+        return elems.length;
+    }*/
+    
     public int size() {
-        // TODO
-        return -1;
+    	return size;
     }
 
-    // TODO: Runtime: O(?)
+    // Runtime: O(1)
     public Cow get(int index) {
-        // TODO
-        return null;
+        if(index > elems.length) {
+        	throw new IndexOutOfBoundsException("There are no cows at " + index);
+        } else {
+        	return elems[index];
+        }
     }
 
-    // TODO: Runtime: O(?)
+    // Runtime: O(n)
     public Cow remove(int index) {
-        // TODO
-        return null;
+    	if(index > elems.length) {
+        	throw new IndexOutOfBoundsException("There are no cows at " + index);
+        } else {
+        	Cow tempCow = elems[index];
+	    	for(int i=0;i<elems.length-1;i++) {
+	    		if(i>=index) {
+	    			elems[i] = elems[i + 1];
+	    		}
+	    	}
+	    	elems[elems.length - 1] = null;
+	    	size--;
+	    	if((int) (elems.length/4) == size) {
+	    		elems = shrink();
+	    	}
+	    	return tempCow;
+        }
     }
 
-    // TODO: Runtime: O(?)
+    // Runtime: O(n)
     public void add(int index, Cow c) {
-        // TODO
+    	if(index > size) {
+        	throw new IndexOutOfBoundsException("Can't add a cow at " + index);
+        } else {
+        	if(elems.length == size) {
+        		elems = grow();
+        	}
+        	for(int i=elems.length-1;i>=index;i--) {
+        		elems[i] = elems[i-1];
+        	}
+        	elems[index] = c;
+        	size++;
+        }
     }
 }
