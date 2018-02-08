@@ -6,5 +6,12 @@
 	<classpathentry kind="src" path="datastructures/day01/test"/>
 	<classpathentry kind="src" path="datastructures/day02/src"/>
 	<classpathentry kind="src" path="datastructures/day02/test"/>
+	<classpathentry kind="src" path="datastructures/day03/src"/>
+	<classpathentry kind="src" path="datastructures/day03/test">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/N4tticus/Eclipse Workspace/DSA-18/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
