@@ -85,24 +85,29 @@ public class MyHashMapTest {
 
     @Test
     public void testResize() {
-        for (int i = 0; i < 10000; i++)
+        for (int i = 0; i < 10000; i++) {
             map.put(Integer.toString(i), i);
+        }
         assertEquals(9999, (int) map.get("9999"));
         assertEquals(1, (int) map.get("One"));
         MyHashMap temp = (MyHashMap) map;
         assertEquals(16384, temp.buckets.length);
         assertEquals(10004, map.size());
-        for (int i = 0; i < 6000; i++)
+        for (int i = 0; i < 6000; i++) {
             map.remove(Integer.toString(i));
+        }
         assertEquals(8192, temp.buckets.length);
-        for (int i = 6000; i < 9960; i++)
+        for (int i = 6000; i < 9960; i++) {
             map.remove(Integer.toString(i));
+        }
         assertEquals(128, temp.buckets.length);
-        for (int i = 9960; i < 9990; i++)
+        for (int i = 9960; i < 9990; i++) {
             map.remove(Integer.toString(i));
+        }
         assertEquals(32, temp.buckets.length);
-        for (int i = 9990; i < 9998; i++)
+        for (int i = 9990; i < 9998; i++) {
             map.remove(Integer.toString(i));
+        }
         assertEquals(16, temp.buckets.length);
     }
 

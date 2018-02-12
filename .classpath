@@ -12,6 +12,8 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/N4tticus/Eclipse Workspace/DSA-18/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="datastructures/day04/src"/>
+	<classpathentry kind="src" path="datastructures/day04/test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

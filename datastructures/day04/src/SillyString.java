@@ -31,8 +31,8 @@ public class SillyString {
      * @param args
      */
     public static void main(String[] args) {
-        SillyString first = new SillyString("Hello");
-        SillyString second = new SillyString("World");
+        SillyString first = new SillyString("bd");
+        SillyString second = new SillyString("cc");
 
         System.out.println(first.hashCode());
         System.out.println(second.hashCode());
