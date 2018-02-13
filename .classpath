@@ -14,6 +14,9 @@
 	</classpathentry>
 	<classpathentry kind="src" path="datastructures/day04/src"/>
 	<classpathentry kind="src" path="datastructures/day04/test"/>
+	<classpathentry excluding="datastructures/day00/src/|datastructures/day01/src/|datastructures/day01/test/|datastructures/day02/src/|datastructures/day02/test/|datastructures/day03/src/|datastructures/day03/test/|datastructures/day04/src/|datastructures/day04/test/|datastructures/day00/|datastructures/day01/|datastructures/day02/|datastructures/day03/|datastructures/day04/|datastructures/|sorting/bin/|sorting/day00/|sorting/day00/src/|sorting/day00/src/|sorting/day00/test/|sorting/day00/test/" kind="src" path=""/>
+	<classpathentry kind="src" path="sorting/day00/src"/>
+	<classpathentry kind="src" path="sorting/day00/test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
