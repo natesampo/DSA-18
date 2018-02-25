@@ -1,9 +1,13 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+package sorting.day01.tests;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import sorting.day01.src.Problems;
 
 public class ProblemsTest {
     private int[] emptyCase;
@@ -32,6 +36,13 @@ public class ProblemsTest {
         assertTrue(Arrays.equals(Problems.runningMedian(twoCase), Problems.runningMedianReallySlow(twoCase)));
         assertTrue(Arrays.equals(Problems.runningMedian(twoCase), Problems.runningMedianReallySlow(twoCase)));
         assertTrue(Arrays.equals(Problems.runningMedian(threeCase), Problems.runningMedianReallySlow(threeCase)));
+        /*for(int i=0;i<Problems.runningMedian(eightCase).length;i++) {
+        	System.out.println(Problems.runningMedian(eightCase)[i]);
+        }
+        System.out.println("___________________");
+        for(int i=0;i<Problems.runningMedianReallySlow(eightCase).length;i++) {
+        	System.out.println(Problems.runningMedianReallySlow(eightCase)[i]);
+        }*/
         assertTrue(Arrays.equals(Problems.runningMedian(eightCase), Problems.runningMedianReallySlow(eightCase)));
         assertTrue(Arrays.equals(Problems.runningMedian(nineCase), Problems.runningMedianReallySlow(nineCase)));
         assertTrue(Arrays.equals(Problems.runningMedian(twoCase), Problems.runningMedianReallySlow(twoCase)));

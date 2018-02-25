@@ -1,3 +1,5 @@
+package sorting.day01.src;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class QuickSort extends SortAlgorithm {
@@ -12,15 +14,18 @@ public class QuickSort extends SortAlgorithm {
 
     /**
      * TODO
-     * Best-case runtime:
-     * Worst-case runtime:
-     * Average-case runtime:
+     * Best-case runtime: O(nlog(n))
+     * Worst-case runtime: O(nlog(n)) - Technically is O(n^2) still if you get really unlucky
+     * Average-case runtime: O(nlog(n))
      *
-     * Space-complexity:
+     * Space-complexity: O(n)
      */
     @Override
     public int[] sort(int[] array) {
-        // TODO: Sort the array. Make sure you avoid the O(N^2) runtime worst-case
+        shuffleArray(array);
+        
+        quickSort(array, 0, array.length-1);
+        
         return array;
     }
 
@@ -35,7 +40,9 @@ public class QuickSort extends SortAlgorithm {
     public void quickSort(int[] a, int lo, int hi) {
         if (lo < hi) {
             int p = partition(a, lo, hi);
-            // TODO
+            
+            quickSort(a, lo, p-1);
+            quickSort(a, p+1, hi);
         }
     }
 
@@ -49,8 +56,26 @@ public class QuickSort extends SortAlgorithm {
      * @param hi The ending index of the subarray being considered (inclusive)
      */
     public int partition(int[] array, int lo, int hi) {
-        // TODO
-        return 0;
+        int pivotNumber = array[lo];
+        int pivotIndex = lo+1;
+        
+        for(int i=pivotIndex;i<=hi;i++) {
+        	if(array[i] < pivotNumber) {
+        		
+        		int tempVal = array[i];
+        		array[i] = array[pivotIndex];
+        		array[pivotIndex] = tempVal;
+        		pivotIndex++;
+        		
+        	}
+        }
+        
+        pivotIndex--;
+        int tempVal = array[lo];
+        array[lo] = array[pivotIndex];
+        array[pivotIndex] = tempVal;
+        return pivotIndex;
+        
     }
 
 }

@@ -1,6 +1,8 @@
+package sorting.day01.src;
+
 public abstract class SortAlgorithm {
 
-    abstract int[] sort(int[] array);
+    public abstract int[] sort(int[] array);
 
     void swap(int[] a, int i, int j) {
         int temp = a[i];

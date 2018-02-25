@@ -1,6 +1,8 @@
+package sorting.day01.src;
+
 public class HeapSort extends SortAlgorithm {
-    int size;
-    int[] heap;
+    public int size;
+    public int[] heap;
 
     private int parent(int i) {
         return (i-1) / 2;
@@ -18,7 +20,21 @@ public class HeapSort extends SortAlgorithm {
     // Corrects the position of element indexed i by sinking it.
     // Use either recursion or a loop to then sink the child
     public void sink(int i) {
-        // TODO
+    	int sinkVal = heap[i];
+    	
+        if(rightChild(i) < heap.length && heap[rightChild(i)] > sinkVal && heap[rightChild(i)] > heap[leftChild(i)] && rightChild(i) < size) {
+        	
+        	heap[i] = heap[rightChild(i)];
+        	heap[rightChild(i)] = sinkVal;
+        	sink(rightChild(i));
+        		
+        } else if(leftChild(i) < heap.length && heap[leftChild(i)] > sinkVal && leftChild(i) < size) {
+        	
+        	heap[i] = heap[leftChild(i)];
+    		heap[leftChild(i)] = sinkVal;
+    		sink(leftChild(i));
+        	
+        }
     }
 
     // Given the array, build a heap by correcting every non-leaf's position, starting from the bottom, then
@@ -28,23 +44,29 @@ public class HeapSort extends SortAlgorithm {
         this.size = array.length;
 
         for (int i=this.size / 2 - 1; i>=0; i--) {
-            // TODO
+            sink(i);
         }
     }
 
     /**
-     * Best-case runtime:
-     * Worst-case runtime:
-     * Average-case runtime:
+     * Best-case runtime: O(n)
+     * Worst-case runtime: O(nlog(n))
+     * Average-case runtime: O(nlog(n))
      *
-     * Space-complexity:
+     * Space-complexity: O(1)
      */
     @Override
     public int[] sort(int[] array) {
         heapify(array);
 
         for (int i=size-1; i>0; i--) {
-            // TODO
+        	
+        	size--;
+        	int root = heap[0];
+        	heap[0] = heap[i];
+        	heap[i] = root;
+        	sink(0);
+        	
         }
 
         return heap;

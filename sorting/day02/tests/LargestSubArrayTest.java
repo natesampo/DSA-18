@@ -1,6 +1,10 @@
-import org.junit.jupiter.api.Test;
+package sorting.day02.tests;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
+import org.junit.jupiter.api.Test;
+
+import sorting.day02.src.LargestSubArray;
 
 public class LargestSubArrayTest {
     @Test
@@ -25,6 +29,7 @@ public class LargestSubArrayTest {
 
     @Test
     public void testlargestSubarray5() {
+    	//System.out.println("{" + LargestSubArray.largestSubarray(new int[]{1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1})[0] + ", " + LargestSubArray.largestSubarray(new int[]{1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1})[1] + "}");
         assertArrayEquals(new int[]{5, 10}, LargestSubArray.largestSubarray(new int[]{1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1}));
     }
 }

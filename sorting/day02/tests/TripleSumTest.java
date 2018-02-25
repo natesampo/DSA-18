@@ -1,7 +1,11 @@
+package sorting.day02.tests;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import sorting.day02.src.TripleSum;
 
 
 public class TripleSumTest {

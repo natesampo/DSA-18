@@ -1,3 +1,5 @@
+package sorting.day01.src;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -42,7 +44,33 @@ public class Problems {
      */
     public static double[] runningMedian(int[] inputStream) {
         double[] runningMedian = new double[inputStream.length];
-        // TODO
+        
+        PriorityQueue<Integer> greater = minPQ();
+        PriorityQueue<Integer> lesser = maxPQ();
+        
+        for(int i=0;i<inputStream.length;i++) {
+        	
+        	if(greater.isEmpty() || inputStream[i] < greater.peek()) {
+        		lesser.offer(inputStream[i]);
+        	} else {
+        		greater.offer(inputStream[i]);
+        	}
+        	
+        	if(lesser.size() < greater.size()-1) {
+        		lesser.offer(greater.poll());
+        	} else if(lesser.size() > greater.size()+1) {
+        		greater.offer(lesser.poll());
+        	}
+        	
+        	if(lesser.size() == greater.size()) {
+        		runningMedian[i] = (lesser.peek() + greater.peek()) / 2.0;
+        	} else if(lesser.size() > greater.size()) {
+        		runningMedian[i] = lesser.peek();
+        	} else {
+        		runningMedian[i] = greater.peek();
+        	}
+        }
+        
         return runningMedian;
     }
 

@@ -1,10 +1,14 @@
-import org.junit.jupiter.api.Test;
+package sorting.day02.tests;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import sorting.day02.src.FrequencyPrint;
 
 public class FrequencyPrintTest {
 
