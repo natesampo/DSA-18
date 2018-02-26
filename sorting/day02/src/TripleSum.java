@@ -8,7 +8,7 @@ public class TripleSum {
         Arrays.sort(arr);
         int number = 0;
         
-        for (int i=0;i<arr.length;i++) {
+        for(int i=0;i<arr.length-2;i++) {
         	
             int startWalker = i + 1;
             int endWalker = arr.length - 1;
@@ -17,7 +17,7 @@ public class TripleSum {
                 if (arr[i] + arr[startWalker] + arr[endWalker] == sum) {
                 	
                     number++;
-                    endWalker++;
+                    startWalker++;
                     
                 } else if (arr[i] + arr[startWalker] + arr[endWalker] < sum)
                     startWalker++;
