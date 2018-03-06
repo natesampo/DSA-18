@@ -5,8 +5,13 @@ import java.util.HashMap;
 public class CountingSort {
 
     /**
+<<<<<<< HEAD
      * Use counting sort to sort positive integer array A.
      * Runtime: O(k+n)
+=======
+     * Use counting sort to sort non-negative integer array A.
+     * Runtime: TODO
+>>>>>>> upstream/master
      *
      * k: maximum element in array A
      */
