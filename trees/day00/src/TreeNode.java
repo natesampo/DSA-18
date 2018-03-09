@@ -1,6 +1,10 @@
+package trees.day00.src;
+
 public class TreeNode<T extends Comparable<T>> {
-    T key;
-    TreeNode<T> parent, leftChild, rightChild;
+    public T key;
+    TreeNode<T> parent;
+	public TreeNode<T> leftChild;
+	public TreeNode<T> rightChild;
 
     TreeNode(T key) {
         this.key = key;

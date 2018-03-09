@@ -1,7 +1,10 @@
+package trees.day00.src;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class BinarySearchTree<T extends Comparable<T>> {
-    TreeNode<T> root;
+    public TreeNode<T> root;
     private int size;
 
     public int size() {
@@ -27,9 +30,30 @@ public class BinarySearchTree<T extends Comparable<T>> {
             add(k);
     }
 
-    public List<T> inOrderTraversal() {
-        // TODO
-        return null;
+    public List<T> inOrderTraversal(TreeNode<T> tempNode) {
+    	List<T> nodeList = new ArrayList<T>();
+    	
+    	if(tempNode == null) {
+    		return nodeList;
+    	}
+    	
+    	if(tempNode.hasLeftChild()) {
+    		List<T> tempList = inOrderTraversal(tempNode.leftChild);
+    		for(T n : tempList) {
+    			nodeList.add(n);
+    		}
+    	}
+    	
+    	nodeList.add(tempNode.key);
+    	
+    	if(tempNode.hasRightChild()) {
+    		List<T> tempList = inOrderTraversal(tempNode.rightChild);
+    		for(T n : tempList) {
+    			nodeList.add(n);
+    		}
+    	}
+        
+        return nodeList;
     }
 
     /**
@@ -53,21 +77,26 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private TreeNode<T> delete(TreeNode<T> n) {
+    	TreeNode<T> replacement;
+    	
         // Recursive base case
         if (n == null) return null;
 
-        TreeNode<T> replacement;
-
-        if (n.isLeaf())
+        if (n.isLeaf()) {
             // Case 1: no children
             replacement = null;
-        else if (n.hasRightChild() != n.hasLeftChild())
+        }
+        else if (n.hasRightChild() != n.hasLeftChild()) {
             // Case 2: one child
             replacement = (n.hasRightChild()) ? n.rightChild : n.leftChild; // replacement is the non-null child
-        else {
+        } else {
             // Case 3: two children
-            // TODO
-            replacement = null;
+            replacement = findPredecessor(n);
+            delete(replacement);
+            replacement.moveChildrenFrom(n);
+            if(n == root) {
+        		root = replacement;
+        	}
         }
 
         // Put the replacement in its correct place, and set the parent.
@@ -96,12 +125,42 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private TreeNode<T> findPredecessor(TreeNode<T> n) {
-        // TODO
+    	if(n.hasLeftChild()) {
+        	n = n.leftChild;
+        	while(n.hasRightChild()) {
+        		n = n.rightChild;
+        	}
+        	return n;
+        } else {
+        	while(n != root) {
+        		if(n.isRightChild()) {
+        			return n.parent;
+        		} else {
+        			n = n.parent;
+        		}
+        	}
+        }
+        
         return null;
     }
 
     private TreeNode<T> findSuccessor(TreeNode<T> n) {
-        // TODO
+        if(n.hasRightChild()) {
+        	n = n.rightChild;
+        	while(n.hasLeftChild()) {
+        		n = n.leftChild;
+        	}
+        	return n;
+        } else {
+        	while(n != root) {
+        		if(n.isLeftChild()) {
+        			return n.parent;
+        		} else {
+        			n = n.parent;
+        		}
+        	}
+        }
+        
         return null;
     }
 
