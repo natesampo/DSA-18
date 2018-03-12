@@ -1,5 +1,9 @@
+package trees.day00.tests;
+
 import java.util.LinkedList;
 import java.util.Queue;
+
+import trees.day00.src.TreeNode;
 
 public class TreeUtils {
     public static int getMaxHeight(TreeNode<Integer> node, int height) {
@@ -46,7 +50,7 @@ public class TreeUtils {
     public static TreeNode<Integer> treeNodeFromKeys(int i, Integer[] keys) {
         if (i<0 || i>=keys.length || keys[i]==null)
             return null;
-        return new TreeNode<>(keys[i]);
+        return new TreeNode<Integer>(keys[i]);
     }
 
 }

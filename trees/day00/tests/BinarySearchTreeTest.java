@@ -153,9 +153,9 @@ public class BinarySearchTreeTest {
     @Test
     public void testDelete() {
         delTest(bsts[0], inputs[0]);
-        //delTest(bsts[1], inputs[1]);
-       // delTest(bsts[2], inputs[2]);
-        //delTest(bsts[3], inputs[3]);
-        //delTest(bsts[4], inputs[4]);
+        delTest(bsts[1], inputs[1]);
+        delTest(bsts[2], inputs[2]);
+        delTest(bsts[3], inputs[3]);
+        delTest(bsts[4], inputs[4]);
     }
 }

@@ -6,7 +6,7 @@ public class TreeNode<T extends Comparable<T>> {
 	public TreeNode<T> leftChild;
 	public TreeNode<T> rightChild;
 
-    TreeNode(T key) {
+    public TreeNode(T key) {
         this.key = key;
         this.parent = null;
         this.leftChild = null;
